@@ -1,9 +1,28 @@
 <div class="card text-center">
   <div class="card-header">
-    <h1>Flights#index</h1>
+    <h1>Flights#Index</h1>
   </div>
   <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">Find me in app/views/flights/index.html.erb</p>
+    <h5 class="card-title">Search for Flights</h5>
+    <%= form_with url: "/flights", method: :get do |form| %>
+      <div class="form-group row d-flex justify-content-center">
+
+        <div class="col-sm-2 col-form-label">
+        <%= form.label :departure, "Departure Airport:" %>
+        <%= form.text_field :departure, class:"form-control" %>
+        </div>
+
+        <div class="col-sm-2 col-form-label">
+        <%= form.label :arrival, "Arrival Airport:" %>
+        <%= form.text_field :arrival, class:"form-control" %>
+        </div>
+
+        <div class="col-sm-2 col-form-label">
+          <%= form.label :date, "Date:" %>
+          <%= form.text_field :date, class:"form-control" %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
+
