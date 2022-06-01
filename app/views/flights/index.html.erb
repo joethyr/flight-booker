@@ -16,10 +16,14 @@
         <%= form.label :arrival, "Arrival Airport:" %>
         <%= form.text_field :arrival, class:"form-control" %>
         </div>
+        <div class="col-sm-2 col-form-label">
+        <%= form.label :passenger, "Passenger :" %>
+        <%= form.number_field :passenger, class:"form-control" %>
+        </div>
 
         <div class="col-sm-2 col-form-label">
           <%= form.label :date, "Date:" %>
-          <%= form.text_field :date, class:"form-control" %>
+          <%= form.date_field :date, class:"form-control" %>
         </div>
       </div>
     <% end %>
