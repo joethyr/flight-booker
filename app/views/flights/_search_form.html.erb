@@ -5,28 +5,32 @@
   <div class="card-body">
     <h5 class="card-title">Search for Flights</h5>
     <%= form_with url: "/flights", method: :get do |form| %>
-      <div class="form-group row d-flex justify-content-center">
+    <div class="form-group row d-flex justify-content-center">
 
-        <div class="col-sm-2 col-form-label">
-        <%= form.label :departure, "Departure Airport:" %>
-        <%= form.text_field :departure, class:"form-control" %>
-        </div>
-
-        <div class="col-sm-2 col-form-label">
-        <%= form.label :arrival, "Arrival Airport:" %>
-        <%= form.text_field :arrival, class:"form-control" %>
-        </div>
-        <div class="col-sm-2 col-form-label">
-        <%= form.label :passenger, "Passenger :" %>
-        <%= form.number_field :passenger, class:"form-control" %>
-        </div>
-
-        <div class="col-sm-2 col-form-label">
-          <%= form.label :date, "Date:" %>
-          <%= form.date_field :date, class:"form-control" %>
-        </div>
+      <div class="col-md-1 col-form-label">
+        <%= form.label :departure, "Departure:" %>
+        <%= form.select(:depart_airport_id, options_for_select(@airport_options, params[:depart_airport_id]), include_blank: "") %>
       </div>
+
+      <div class="col-md-1 col-form-label">
+        <%= form.label :arrival, "Arrival:" %>
+        <%= form.select(:arrival_airport_id, options_for_select(@airport_options, params[:arrival_airport_id]), include_blank: "") %>
+      </div>
+
+      <div class="col-sm-1 col-form-label">
+        <%= form.label :passenger, "Passenger :" %>
+        <%= form.select(:passenger_count, options_for_select(Array(1..4), params[:passenger_count]), include_blank: "") %>
+      </div>
+
+      <div class="col-sm-1 col-form-label">
+        <%= form.label :depart_time, "Date:" %>
+        <%= form.date_field :depart_time, value: params[:depart_time] %>
+      </div>
+
+      <div class="form-button">
+        <%= form.submit "Search Flights" %>
+      </div>
+    </div>
     <% end %>
   </div>
 </div>
-
