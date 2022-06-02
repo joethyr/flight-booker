@@ -1,0 +1,26 @@
+<% if @available_flights.any? %>
+<table>
+    <thead>
+      <tr>
+        <th>Flight ID</th>
+        <th>Departure</th>
+        <th>Arrival</th>
+        <th>Duration</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @available_flights.each do |flight| %>
+        <tr>
+          <td><%= flight.id %></td>
+          <td><%= flight.depart_airport.code %></td>
+          <td><%= flight.arrival_airport.code %></td>
+          <td><%= flight.duration %> mins</td>
+          <td><%= flight.depart_time %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% else %>
+  <p>No available flights found.</p>
+<% end %>
