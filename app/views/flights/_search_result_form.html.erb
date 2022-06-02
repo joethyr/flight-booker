@@ -19,7 +19,7 @@
             <td><%= flight.duration %> mins</td>
             <td><%= flight.depart_time %></td>
             <td>
-              <button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Book Flight</button>
+              <%= button_to 'Book Flight', new_booking_path, method: :get%>
             </td>
           </tr>
         <% end %>
