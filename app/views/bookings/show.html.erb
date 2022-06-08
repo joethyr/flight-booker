@@ -2,3 +2,29 @@
 
 
 <%= link_to "Return to Home", root_path %>
+
+<div>
+  <% @booking.passengers.each do |passenger| %>
+    <div>
+      Passenger: <%= passenger.name %>
+    </div>
+    <div>
+      DOB: <%= passenger.date_of_birth %>
+    </div>
+    <div>
+      Phone: <%= passenger.phone %>
+    </div>
+    <div>
+      Email: <%= passenger.email %>
+    </div>
+    <div>
+      Departure Airport: <%= @booking.flight.depart_airport.code %>
+    </div>
+    <div>
+      Arrival Airport: <%= @booking.flight.arrival_airport.code %>
+    </div>
+    <div>
+      Flight Date: <%= @booking.flight.formatted_date %>
+    </div>
+  <% end %>
+</div>
