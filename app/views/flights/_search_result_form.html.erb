@@ -1,15 +1,18 @@
-<% if @available_flights %>
-  <div class="flight-results">
-    <h2>Available Flights:</h2>
+<div class="container">
+  <% if @available_flights %>
+  <h2 class="text-white">Available Flights:</h2>
+  <ul class="list-group">
     <%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
       <%= f.hidden_field :ticket, :value => params[:ticket] %>
-      <%= f.collection_radio_buttons :flight_id, @available_flights, :id, :formatted_date do |option| %>
-        <p>
-          <%= option.radio_button %>
-          <%= option.label %>
-        </p>
+      <%= f.collection_radio_buttons :flight_id, @available_flights, :id, :formatted_date do |b| %>
+      <li class="list-group-item list-group-item-action">
+        <%= b.radio_button class: "form-check-input me-1" %>
+        <span>Date: <%= b.label %></span>
+      </li>
       <% end %>
-      <%= f.submit %>
+      <br>
+      <%= f.submit "Book Flight", class: "btn btn-primary btn-lg" %>
     <% end %>
-  </div>
+    </ul>
 <% end %>
+</div>
