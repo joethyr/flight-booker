@@ -22,3 +22,12 @@ html {
 #body-color {
   background-color: #659DBD;
 }
+
+.fa-plane:before {
+    margin: 0 15px;
+}
+
+#show-card-header {
+  display: flex;
+  justify-content: space-between;
+}

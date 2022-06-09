@@ -1,30 +1,22 @@
-<h1>Congratulations! Your flight booking is confirmed. </h1>
-
-
-<%= link_to "Return to Home", root_path %>
+<h1 class="text-center text-white">Congratulations! Your flight booking is confirmed. </h1>
 
 <div>
   <% @booking.passengers.each do |passenger| %>
-    <div>
-      Passenger: <%= passenger.name %>
-    </div>
-    <div>
-      DOB: <%= passenger.date_of_birth %>
-    </div>
-    <div>
-      Phone: <%= passenger.phone %>
-    </div>
-    <div>
-      Email: <%= passenger.email %>
-    </div>
-    <div>
-      Departure Airport: <%= @booking.flight.depart_airport.code %>
-    </div>
-    <div>
-      Arrival Airport: <%= @booking.flight.arrival_airport.code %>
-    </div>
-    <div>
-      Flight Date: <%= @booking.flight.formatted_date %>
-    </div>
+<div class="card m-2">
+  <div class="card-header" id= "show-card-header">
+    <p>Flight ID: <%= @booking.flight_id %></p> <p>Flight Date: <%= @booking.flight.formatted_date %></p> <p>Length: <%= @booking.flight.duration %>mins</p>
+  </div>
+  <div class="card-body">
+    <h3 class="card-title text-center">Departure Airport: <%= @booking.flight.depart_airport.code %>  <i class="fa-solid fa-plane"></i>  Arrival Airport: <%= @booking.flight.arrival_airport.code %></h3>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Passenger: <%= passenger.name %></li>
+    <li class="list-group-item">DOB: <%= passenger.date_of_birth %></li>
+    <li class="list-group-item">Phone: <%= passenger.phone %></li>
+    <li class="list-group-item">Email: <%= passenger.email %></li>
+  </ul>
+  </div>
+</div>
   <% end %>
 </div>
+
+<%= link_to "Return to Home", root_path, class: "btn btn-primary btn-lg"  %>
