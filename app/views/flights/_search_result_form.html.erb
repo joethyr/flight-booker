@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% unless @available_flights.nil? %>
   <% if @available_flights.any? %>
   <table class="table table-striped table-hover">
@@ -22,10 +23,25 @@
               <%= button_to 'Book Flight', new_booking_path, method: :get, params: { flight_id: flight.id, passenger_count: params[:flight][:passenger_count] } %> %>
             </td>
           </tr>
+=======
+<div>
+  <h2 class="text-white">Available Flights:</h2>
+  <% if @available_flights.nil? %>
+    <p class="text-white">No Flights available.</p>
+  <% else %>
+    <ul class="list-group">
+      <%= form_with url: "bookings/new/", method: "get", local: true do |f| %>
+        <%= f.hidden_field :ticket, :value => params[:ticket] %>
+        <%= f.collection_radio_buttons :flight_id, @available_flights, :id, :formatted_date do |b| %>
+        <li class="list-group-item list-group-item-action rounded">
+          <%= b.radio_button class: "form-check-input me-1" %>
+          <span>Date: <%= b.label %></span>
+        </li>
+>>>>>>> develop
         <% end %>
-      </tbody>
-    </table>
-    <% else %>
-    <p>No available flights found.</p>
+        <br>
+        <%= f.submit "Book Flight", class: "btn btn-primary btn-lg" %>
+      <% end %>
+    </ul>
   <% end %>
-<% end %>
+</div>

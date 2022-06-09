@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  background-color: #659DBD;
+  height: 100%;
+}
+
+#body-color {
+  background-color: #659DBD;
+}
+
+.fa-plane:before {
+    margin: 0 15px;
+}
+
+#show-card-header {
+  display: flex;
+  justify-content: space-between;
+}
