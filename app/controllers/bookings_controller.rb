@@ -1,13 +1,4 @@
 class BookingsController < ApplicationController
-<<<<<<< HEAD
-  belongs_to :flight
-  has_many :passengers, through: :passenger_bookings
-  has_many :passenger_bookings, dependent: :destroy
-
-  def new
-  end
-
-=======
   def new
     @flight = Flight.find_by(id: params[:flight_id])
     @booking = Booking.new(flight: @flight)
@@ -37,5 +28,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:flight_id, passengers_attributes: [:name, :email, :date_of_birth, :phone])
   end
->>>>>>> develop
 end
