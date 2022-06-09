@@ -9,7 +9,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     if @booking.save
-      redirect_to booking_url(@booking), notice: "Booking was successfully created."
+      redirect_to booking_url(@booking), notice: 'Congratulations! Your flight booking is confirmed.'
     else
       render :new
     end
