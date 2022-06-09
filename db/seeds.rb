@@ -14,7 +14,7 @@ Airport.create([
 
 Flight.create([
   { depart_airport_id: 1, arrival_airport_id: 2, duration: 120, depart_time: "2022-06-07" },
-  { depart_airport_id: 1, arrival_airport_id: 2, duration: 90, depart_time: "2022-06-07" },
+  { depart_airport_id: 1, arrival_airport_id: 2, duration: 90, depart_time: "2022-06-08" },
   { depart_airport_id: 1, arrival_airport_id: 3, duration: 240, depart_time: "2022-06-13" },
   { depart_airport_id: 2, arrival_airport_id: 1, duration: 120, depart_time: "2022-06-13" },
   { depart_airport_id: 2, arrival_airport_id: 3, duration: 140, depart_time: "2022-06-21" },

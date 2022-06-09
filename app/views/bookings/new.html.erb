@@ -1,17 +1,11 @@
 <% i = 0 %>
 
 <h1 class="text-white text-center">Flight Reservation</h1>
-<div>
-  <p>Flight ID: <%= @flight.id %></p>
-  <p>Date of Flight: <%= @flight.formatted_date %></p>
-</div>
-
 <div class="bg-light rounded p-3">
-  <h3>
-  Passenger Information:
-</h3>
+  <h3>Passenger Information:</h3>
 <%= form_with model: @booking, local: true do |form| %>
-  <%= form.hidden_field :flight_id, :value => params[:flight_id] %>
+    <%= form.hidden_field :flight_id, value: params[:flight_id] %>
+
     <%= form.fields_for :passengers do |passenger| %>
     <% i += 1 %>
     <div class="row g-3">
