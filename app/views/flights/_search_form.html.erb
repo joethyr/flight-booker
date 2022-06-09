@@ -1,4 +1,4 @@
-<div class="container card text-center">
+<div class="card text-center ">
   <div class="card-header bg-secondary text-white">
     <h1>THETA AIRLINES</h1>
   </div>
@@ -7,7 +7,7 @@
 
 <%= form_with url: "/flights", method: :get do |form|%>
 
-  <div class="container form-row d-flex justify-content-center">
+  <div class="form-row d-flex justify-content-center">
     <div class="col">
       <%= form.label :depart_airport_id, "Departure:" %>
       <%= form.collection_select(:depart_airport_id, Airport.all.order(:code), :id, :code, include_blank: '', class: "form-control") %>

@@ -1,32 +1,40 @@
-<h1>Booking</h1>
-<p>
-  Date of Flight: <%= @flight.formatted_date %>
-</p>
+<% i = 0 %>
 
-<h3>
+<h1 class="text-white text-center">Flight Reservation</h1>
+<div>
+  <p>Flight ID: <%= @flight.id %></p>
+  <p>Date of Flight: <%= @flight.formatted_date %></p>
+</div>
+
+<div class="bg-light rounded p-3">
+  <h3>
   Passenger Information:
 </h3>
 <%= form_with model: @booking, local: true do |form| %>
   <%= form.hidden_field :flight_id, :value => params[:flight_id] %>
     <%= form.fields_for :passengers do |passenger| %>
-      <div>
+    <% i += 1 %>
+    <div class="row g-3">
+      <h5 class="mt-5"><%= "Passenger #{i}:" %></h5>
+      <div class="col">
         <%= passenger.label :name, style: "display: block"  %>
         <%= passenger.text_field :name, class:"form-control", required: true %>
       </div>
-      <div>
+      <div class="col">
         <%= passenger.label :date_of_birth, style: "display: block"  %>
         <%= passenger.date_field :date_of_birth, class:"form-control", required: true %>
       </div>
-      <div>
+      <div class="col">
         <%= passenger.label :phone, style: "display: block"  %>
         <%= passenger.telephone_field :phone, class:"form-control", required: true %>
       </div>
-      <div>
+      <div class="col">
         <%= passenger.label :email, style: "display: block"  %>
         <%= passenger.text_field :email, class:"form-control", required: true %>
       </div>
-
+    </div>
     <% end %>
-    <br>
-  <%= form.submit "Submit Booking" %>
+  <br>
+  <%= form.submit "Submit Booking", class: "btn btn-primary btn-lg"  %>
 <% end %>
+</div>
