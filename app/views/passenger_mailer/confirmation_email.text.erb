@@ -1,5 +1,21 @@
-Passenger#confirmation_email
+Flight Booking Confirmation
 
-<%= @greeting %>, find me in app/views/passenger_mailer/confirmation_email.text.erb
+Thank you for booking flight no#<%= @booking.flight_id %> with Theta Airlines.
 
-This is an email confirmation that your flight from ATL to DEN on DATE has now been booked.
+Your flight booking is confirmed and ticket has been issued.
+
+Flight Details:
+
+  <% @booking.passengers.each do |passenger| %>
+
+
+    Departure Airport: <%= @booking.flight.depart_airport.code %>    Arrival Airport: <%= @booking.flight.arrival_airport.code %>
+
+
+• Passenger: <%= passenger.name %>
+• Flight ID: <%= @booking.flight_id %>
+• Flight Date: <%= @booking.flight.formatted_date %>
+• Length: <%= @booking.flight.duration %>mins
+
+
+  <% end %>

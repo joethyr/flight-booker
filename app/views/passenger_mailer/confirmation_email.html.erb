@@ -1,8 +1,21 @@
-<h1>Passenger#confirmation_email</h1>
+<h1>Flight Booking Confirmation</h1>
 
-<p>
-  <%= @greeting %>, find me in app/views/passenger_mailer/confirmation_email.html.erb
-</p>
+<p>Thank you for booking flight no <%= @booking.flight_id %> with Theta Airlines.</p>
 
+<p>Your flight booking is confirmed and ticket has been issued.</p>
 
-<p>This is an email confirmation that your flight from ATL to DEN on DATE has now been booked. </p>
+<h4>Flight Details:</h4>
+
+<% @booking.passengers.each do |passenger| %>
+<div>
+  <div>
+    <h3>Departure Airport: <%= @booking.flight.depart_airport.code %>  to   Arrival Airport: <%= @booking.flight.arrival_airport.code %></h3>
+      <ul>
+        <li>Passenger: <%= passenger.name %></li>
+        <li>Flight ID: <%= @booking.flight_id %></li>
+        <li>Flight Date: <%= @booking.flight.formatted_date %></li>
+        <li>Length: <%= @booking.flight.duration %>mins</li>
+      </ul>
+    </div>
+  </div>
+  <% end %>

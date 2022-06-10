@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     if @booking.save
       redirect_to booking_url(@booking), notice: 'Congratulations! Your flight booking is confirmed.'
+      PassengerMailer.with(booking_id: @booking.id).confirmation_email.deliver_now
     else
       render :new
     end
